@@ -14,6 +14,21 @@ def create_user(email, password):
     return user
 
 
+def get_all_users():
+
+    return User.query.all()
+
+
+def get_user_by_id(user_id):
+
+    return User.query.get(user_id)
+
+
+def get_user_by_email(user_email):
+
+    return User.query.filter_by(email=user_email).first()
+
+
 def create_rating(user, movie, score):
     """Create a rating with User instance and Movie instance"""
 
@@ -41,7 +56,9 @@ def get_all_movies():
 
 def get_movie_by_id(movie_id):
 
-    return Movie.query.filter_by(movie_id=movie_id)
+    # return Movie.query.filter_by(movie_id=movie_id)
+    return Movie.query.get(movie_id)
+
 
 
 if __name__ == '__main__':
